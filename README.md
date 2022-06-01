@@ -6,6 +6,9 @@
 - **Skyd source code and releases**:  
   [SkynetLabs/skyd](https://gitlab.com/SkynetLabs/skyd)
 
+- **Skyd license information**:  
+  [Skynet License 1.0](https://gitlab.com/SkynetLabs/skyd/-/blob/master/LICENSE.md)
+
 - **Where to get help**:  
   [Skynet Labs Discord](https://discord.gg/skynetlabs) or [Skynet Labs Twitter](https://twitter.com/SkynetLabs)
 
