@@ -13,7 +13,22 @@ on:
       - v*
 
 jobs:
+  dockerfile-lint:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        flavor:
+          - bullseye-slim
+          - scratch
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hadolint/hadolint-action@v2.1.0
+        with:
+          dockerfile: ${{ matrix.flavor }}/Dockerfile
+
   dockerhub:
+    needs: [dockerfile-lint]
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
