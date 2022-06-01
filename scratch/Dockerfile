@@ -13,10 +13,6 @@ ARG branch
 RUN git clone https://gitlab.com/SkynetLabs/skyd.git --single-branch --depth 1 --branch ${branch} && \
     make build --directory skyd
 
-# RUN wget -q https://gitlab.com/SkynetLabs/skyd/-/archive/${branch}/skyd-${branch}.tar.gz && \
-#     tar -xvzf skyd-${branch}.tar.gz --directory skyd && \
-#     make build --directory skyd
-
 FROM scratch
 
 LABEL maintainer="Skynet Labs <devs@skynetlabs.com>"
