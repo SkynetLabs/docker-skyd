@@ -50,6 +50,24 @@ Initially your wallet password is your seed phrase but you can change it using b
 
 For webportal usage it is recommended to override `SIA_MODULES` with `gctwra`. It excludes host, miner and exporer modules that are not used by webportal stack.
 
+## Logs rotation
+
+Skyd produces multiple log files that are persisted to disk in append mode. These log files can grow significantly and it is recommended to rotate them based on size of the files.
+
+Easiest way to set up log rotation is to either configure [logrotate](https://linux.die.net/man/8/logrotate) on host machine or use [blacklabelops/logrotate](https://hub.docker.com/r/blacklabelops/logrotate) image.
+
+Example logrotate configuration (change `/sia-data` to the directory that mounts it):
+
+```
+"/sia-data/*.log" "/sia-data/*/*.log" "/sia-data/*/*/*.log" {
+    size 100M
+    rotate 10
+    compress
+    dateext
+    copytruncate
+}
+```
+
 ## CLI client skyc
 
 Every docker-skyd image comes with executable cli client `skyc` that provides information on running `skyd` instance and allows some basic interactions.
@@ -81,3 +99,7 @@ View [license information](https://gitlab.com/SkynetLabs/skyd/-/blob/master/LICE
 As with all Docker images, these likely also contain other software which may be under other licenses (such as Bash, etc from the base distribution, along with any direct or indirect dependencies of the primary software being contained).
 
 As for any pre-built image usage, it is the image user's responsibility to ensure that any use of this image complies with any relevant licenses for all software contained within.
+
+```
+
+```
