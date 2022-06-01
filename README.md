@@ -46,9 +46,29 @@ It is recommended to store your wallet password in `SIA_WALLET_PASSWORD` env var
 
 Initially your wallet password is your seed phrase but you can change it using built in [cli](#cli-client-skyc) `siac wallet change-password` command.
 
-### SIA_MODULES
+### Skynet webportal usage
 
-For webportal usage it is recommended to override `SIA_MODULES` with `gctwra`. It excludes host, miner and exporer modules that are not used by webportal stack.
+For webportal usage it is necessary to override the image cmd to be allow access from docker network and run only required modules.
+
+Skynet webportal cmd override: `--disable-api-security --api-addr :9980 --modules gtcwra`
+
+Example docker-compose compose usage:
+
+```yml
+# ...
+
+services:
+  skyd:
+    image: skynetlabs/skyd:scratch
+    command: "--disable-api-security --api-addr :9980 --modules gtcwra"
+    # ...
+```
+
+Example docker run usage:
+
+```bash
+docker run -v $(pwd)/sia-data:/sia-data skynetlabs/skyd:scratch --disable-api-security --api-addr :9980 --modules gtcwra
+```
 
 ## Logs rotation
 
