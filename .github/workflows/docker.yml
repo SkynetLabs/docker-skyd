@@ -7,6 +7,7 @@ on:
         description: skynetlabs/skyd source branch (manual dispatch does NOT push to dockerhub)
         type: string
         required: true
+  pull_request:
   push:
     tags:
       - v*
@@ -34,6 +35,7 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
             type=semver,pattern=,suffix=${{ matrix.flavor }}
+            type=raw,value={{raw}},enable=${{ github.event_name == 'pull_request' }}
       - uses: docker/login-action@v2
         if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
         with:
@@ -44,7 +46,7 @@ jobs:
         with:
           context: ${{ matrix.flavor }}
           build-args: |
-            branch=${{ github.event.inputs.branch || github.ref_name }}
+            branch=${{ (github.event_name == 'pull_request' && 'master') || github.event.inputs.branch || github.ref_name }}
           push: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
