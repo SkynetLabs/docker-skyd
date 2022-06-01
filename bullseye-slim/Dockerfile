@@ -31,7 +31,6 @@ COPY --from=builder /etc/mime.types /etc/mime.types
 # copy skyd and skyc binaries
 COPY --from=builder /go/bin/ /usr/bin
 
-ENV SIA_DIR /sia
 ENV SIA_DATA_DIR /sia-data
 ENV SIAD_DATA_DIR /sia-data
 
