@@ -25,7 +25,7 @@ LABEL maintainer="Skynet Labs <devs@skynetlabs.com>"
 COPY --from=builder /etc/mime.types /etc/mime.types
 
 # copy skyd and skyc binaries
-COPY --from=builder /go/bin/ /root/skyd/bin
+COPY --from=builder /root/skyd/bin/ /usr/bin
 
 ENV SIA_DATA_DIR /sia-data
 ENV SIAD_DATA_DIR /sia-data
