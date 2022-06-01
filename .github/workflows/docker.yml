@@ -19,7 +19,7 @@ jobs:
       fail-fast: false
       matrix:
         flavor:
-          - bullseye
+          - bullseye-slim
           - scratch
     steps:
       - uses: actions/checkout@v3
