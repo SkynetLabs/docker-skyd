@@ -28,4 +28,4 @@ ENV SIAD_DATA_DIR /sia-data
 
 ENTRYPOINT [ "skyd" ]
 
-CMD [ "--disable-api-security", "--api-addr :9980", "--modules gtcwra" ]
+CMD [ "--disable-api-security", "--api-addr", ":9980", "--modules", "gtcwra" ]
