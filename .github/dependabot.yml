@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: docker
+    directory: "/bullseye-slim"
+    schedule:
+      interval: monthly
+  - package-ecosystem: docker
+    directory: "/scratch"
+    schedule:
+      interval: monthly
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: monthly
