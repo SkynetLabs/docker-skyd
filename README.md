@@ -96,7 +96,7 @@ Check [documentation](https://gitlab.com/SkynetLabs/skyd/-/blob/master/cmd/skyc/
 
 # Image Variants
 
-The `skyd` images come in many flavours, each designed for a specific use case.
+The `skyd` images come in two flavours, each designed for a specific use case.
 
 ## `skyd:<version>-scratch`
 
