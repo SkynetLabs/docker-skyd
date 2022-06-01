@@ -26,7 +26,6 @@ jobs:
       - uses: hadolint/hadolint-action@v2.1.0
         with:
           dockerfile: ${{ matrix.flavor }}/Dockerfile
-
   build-and-push:
     needs: [dockerfile-lint]
     runs-on: ubuntu-latest
