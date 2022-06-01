@@ -27,7 +27,7 @@ jobs:
         with:
           dockerfile: ${{ matrix.flavor }}/Dockerfile
 
-  dockerhub:
+  build-and-push:
     needs: [dockerfile-lint]
     runs-on: ubuntu-latest
     strategy:
