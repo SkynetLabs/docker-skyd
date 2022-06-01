@@ -54,7 +54,7 @@ For webportal usage it is recommended to override `SIA_MODULES` with `gctwra`. I
 
 Every docker-skyd image comes with executable cli client `skyc` that provides information on running `skyd` instance and allows some basic interactions.
 
-Check [documentation](https://gitlab.com/SkynetLabs/skyd/-/tree/master/cmd/skyc) for available commands.
+Check [documentation](https://gitlab.com/SkynetLabs/skyd/-/blob/master/cmd/skyc/README.md) for available commands.
 
 # Image Variants
 
