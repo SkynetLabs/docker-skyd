@@ -32,6 +32,21 @@ Skynet apps transform what’s possible on the web. Beyond protecting privacy, d
 
 See [How To Use This Image](https://github.com/skynetlabs/docker-skyd/blob/main/README.md#how-to-use-this-image) on GitHub for up-to-date documentation.
 
+### Startup command
+
+This image declares `ENTRYPOINT [ "skyd" ]` and does not override any default command line arguments. You are expected to set those yourself as a part of the command.
+
+#### Webportal stack required arguments
+
+When running skyd image as a part of the skynet webportal stack, you need to change enabled modules and make the api accessible.
+
+```yaml
+services:
+  sia:
+    image: skynetlabs/skyd
+    command: --disable-api-security --api-addr :9980 --modules gtcwra
+```
+
 ## Environment variables
 
 All [skyd environment variables](https://gitlab.com/SkynetLabs/skyd/-/raw/master/build/env.go) are supported.
