@@ -42,7 +42,7 @@ When running skyd image as a part of the skynet webportal stack, you need to cha
 
 ```yaml
 services:
-  sia:
+  skyd:
     image: skynetlabs/skyd
     command: --disable-api-security --api-addr :9980 --modules gtcwra
 ```
@@ -62,7 +62,7 @@ All [skyd environment variables](https://gitlab.com/SkynetLabs/skyd/-/raw/master
 
 It is recommended to store your wallet password in `SIA_WALLET_PASSWORD` env variable but make sure you do not commit it to your repository risking exposing it to public. If this env variable is not set then skyd will require you to unlock the wallet each time it gets restarted.
 
-Initially your wallet password is your seed phrase but you can change it using built in [cli](#cli-client-skyc) command `siac wallet change-password`.
+Initially your wallet password is your seed phrase but you can change it using built in [cli](#cli-client-skyc) command `skyc wallet change-password`.
 
 ## Default docker command
 
