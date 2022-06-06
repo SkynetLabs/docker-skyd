@@ -94,15 +94,15 @@ Check [documentation](https://gitlab.com/SkynetLabs/skyd/-/blob/master/cmd/skyc/
 
 # Image Variants
 
-The `skyd` images come in two flavours, each designed for a specific use case.
+The `skyd` images come in two flavors, each designed for a specific use case.
 
 ## `skyd:<version>-scratch`
 
 This image is based on the [Scratch](https://hub.docker.com/_/scratch) container designed for publishing super minimal images. It contains only our binaries and whatever they currently require to run properly.
 
-Scratch is the most secure and lightweight image base and we strongly recommend you use this flavour as your defaut image unless you have specific requirements that it cannot satisfy.
+Scratch is the most secure and lightweight image base and we strongly recommend you use this flavor as your defaut image unless you have specific requirements that it cannot satisfy.
 
-Scratch does not include any executable shell or dependency management tool like apt or apk so if you are loooking for an image that allows you to execute commands from within of the container or easily install packages, you should try a different flavour.
+Scratch does not include any executable shell or dependency management tool like apt or apk so if you are loooking for an image that allows you to execute commands from within of the container or easily install packages, you should try a different flavor.
 
 ## `skyd:<version>-bullseye-slim`
 
