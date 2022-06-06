@@ -14,9 +14,10 @@ on:
 
 jobs:
   dockerfile-lint:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: true # fail fast to prevent executing build-and-push
+      fail-fast: false
       matrix:
         flavor:
           - bullseye-slim
@@ -27,7 +28,6 @@ jobs:
         with:
           dockerfile: ${{ matrix.flavor }}/Dockerfile
   build-and-push:
-    needs: [dockerfile-lint]
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
