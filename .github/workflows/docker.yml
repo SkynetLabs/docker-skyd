@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: skynetlabs/skyd source branch (manual dispatch does NOT push to dockerhub)
+        description: skyd repository source branch (manual dispatch does NOT push to dockerhub)
         type: string
         required: true
   pull_request:
