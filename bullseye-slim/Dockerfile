@@ -1,4 +1,4 @@
-FROM golang:1.18.2-bullseye AS builder
+FROM golang:1.18.3-bullseye AS builder
 
 LABEL maintainer="Skynet Labs <devs@skynetlabs.com>"
 
