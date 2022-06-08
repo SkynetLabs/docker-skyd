@@ -1,0 +1,90 @@
+name: Docker Build & Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: skyd repository source branch (manual dispatch does NOT push to dockerhub)
+        type: string
+        required: true
+  pull_request:
+  push:
+    tags:
+      - v*
+
+jobs:
+  dockerfile-lint:
+    # runs only on pull requests; does not have to be a requirement for build-and-push
+    # since code on main branch is going to be already linted
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        flavor:
+          - bullseye-slim
+          - scratch
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hadolint/hadolint-action@v2.1.0
+        with:
+          dockerfile: ${{ matrix.flavor }}/Dockerfile
+  build-and-push:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        flavor:
+          - bullseye-slim
+          - scratch
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker/metadata-action@v4
+        id: meta
+        with:
+          images: skynetlabs/skyd
+          # tag skyd:latest enabled only when matrix runs with 'scratch' flavor
+          flavor: |
+            latest=${{ matrix.flavor == 'scratch' && 'auto' || 'false' }}
+          # Type 'semver' produces versions:
+          # - skyd:1.5.6-flavor
+          # - skyd:1.5-flavor
+          # - skyd:1-flavor
+          # - skyd:flavor
+          # Type 'semver' also produces 'latest' and unsuffixed tags for 'scratch' flavor:
+          # - skyd:latest
+          # - skyd:1.5.6
+          # - skyd:1.5
+          # - skyd:1
+          # Type 'sha' produces local image on pull requests, not published on dockerhub
+          tags: |
+            type=semver,pattern={{version}},suffix=-${{ matrix.flavor }}
+            type=semver,pattern={{major}}.{{minor}},suffix=-${{ matrix.flavor }}
+            type=semver,pattern={{major}},suffix=-${{ matrix.flavor }}
+            type=semver,pattern=,suffix=${{ matrix.flavor }}
+            type=semver,pattern={{version}},enable=${{ matrix.flavor == 'scratch' }}
+            type=semver,pattern={{major}}.{{minor}},enable=${{ matrix.flavor == 'scratch' }}
+            type=semver,pattern={{major}},enable=${{ matrix.flavor == 'scratch' }}
+            type=sha,enable=${{ github.event_name == 'pull_request' }}
+      - uses: docker/login-action@v2
+        # authenticate on dockerhub only when we are going to publish
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      - uses: docker/setup-buildx-action@v2
+      - uses: docker/build-push-action@v3
+        with:
+          context: ${{ matrix.flavor }}
+          # provide source skyd branch by trying conditions in order:
+          # - if trigger event is pull request, build skyd from 'master' branch
+          # - if trigger event is workflow_dispatch, use branch name from manual input
+          # - otherwise use ref_name of what triggered the event (for tags it will be tag name)
+          build-args: |
+            branch=${{ (github.event_name == 'pull_request' && 'master') || github.event.inputs.branch || github.ref_name }}
+          # publish to dockerhub only if this has been triggered by pushing a tag
+          push: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
