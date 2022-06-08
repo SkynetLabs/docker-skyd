@@ -17,8 +17,10 @@
 
 # Supported tags and respective `Dockerfile` links
 
-- [`1.5.5-scratch`, `1.5-scratch`, `1-scratch`, `scratch`, `latest`](https://github.com/SkynetLabs/docker-skyd/blob/main/scratch/Dockerfile)
-- [`1.5.5-bullseye-slim`, `1.5-bullseye-slim`, `1-bullseye-slim`, `bullseye-slim`](https://github.com/SkynetLabs/docker-skyd/blob/main/bullseye-slim/Dockerfile)
+_no image released yet_
+
+<!-- - [`1.5.5-scratch`, `1.5-scratch`, `1-scratch`, `scratch`, `latest`](https://github.com/SkynetLabs/docker-skyd/blob/main/scratch/Dockerfile) -->
+<!-- - [`1.5.5-bullseye-slim`, `1.5-bullseye-slim`, `1-bullseye-slim`, `bullseye-slim`](https://github.com/SkynetLabs/docker-skyd/blob/main/bullseye-slim/Dockerfile) -->
 
 # What is Skynet?
 
@@ -29,6 +31,8 @@ Skynet apps transform what’s possible on the web. Beyond protecting privacy, d
 > [skynetlabs.com](https://skynetlabs.com)
 
 # How to use this image
+
+<!-- this direct link is here because dockerhub might have outdated version of readme on repository page -->
 
 See [How To Use This Image](https://github.com/skynetlabs/docker-skyd/blob/main/README.md#how-to-use-this-image) on GitHub for up-to-date documentation.
 
@@ -63,10 +67,6 @@ All [skyd environment variables](https://gitlab.com/SkynetLabs/skyd/-/raw/master
 It is recommended to store your wallet password in `SIA_WALLET_PASSWORD` env variable but make sure you do not commit it to your repository risking exposing it to public. If this env variable is not set then skyd will require you to unlock the wallet each time it gets restarted.
 
 Initially your wallet password is your seed phrase but you can change it using built in [cli](#cli-client-skyc) command `skyc wallet change-password`.
-
-## Default docker command
-
-Docker command defaults to `--disable-api-security --api-addr :9980 --modules gtcwra` which is best suited for running skyd as a part of Skynet Webportal stack. In case that does not fit your use case, you are free to override the command as necessary.
 
 ## Logs rotation
 
