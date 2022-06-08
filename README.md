@@ -32,6 +32,8 @@ Skynet apps transform what’s possible on the web. Beyond protecting privacy, d
 
 # How to use this image
 
+<!-- this direct link is here because dockerhub might have outdated version of readme on repository page -->
+
 See [How To Use This Image](https://github.com/skynetlabs/docker-skyd/blob/main/README.md#how-to-use-this-image) on GitHub for up-to-date documentation.
 
 ### Startup command
