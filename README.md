@@ -66,10 +66,6 @@ It is recommended to store your wallet password in `SIA_WALLET_PASSWORD` env var
 
 Initially your wallet password is your seed phrase but you can change it using built in [cli](#cli-client-skyc) command `skyc wallet change-password`.
 
-## Default docker command
-
-Docker command defaults to `--disable-api-security --api-addr :9980 --modules gtcwra` which is best suited for running skyd as a part of Skynet Webportal stack. In case that does not fit your use case, you are free to override the command as necessary.
-
 ## Logs rotation
 
 Skyd produces multiple log files that are persisted to disk in append mode. These log files can grow significantly and it is recommended to rotate them based on size of the files.
