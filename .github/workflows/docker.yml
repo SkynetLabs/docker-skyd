@@ -61,7 +61,7 @@ jobs:
             type=semver,pattern={{version}},suffix=-${{ matrix.flavor }}
             type=semver,pattern={{major}}.{{minor}},suffix=-${{ matrix.flavor }}
             type=semver,pattern={{major}},suffix=-${{ matrix.flavor }}
-            type=semver,pattern=,suffix=${{ matrix.flavor }}
+            type=semver,pattern=${{ matrix.flavor }}
             type=semver,pattern={{version}},enable=${{ matrix.flavor == 'scratch' }}
             type=semver,pattern={{major}}.{{minor}},enable=${{ matrix.flavor == 'scratch' }}
             type=semver,pattern={{major}},enable=${{ matrix.flavor == 'scratch' }}
