@@ -17,8 +17,10 @@
 
 # Supported tags and respective `Dockerfile` links
 
-- [`1.5.5-scratch`, `1.5-scratch`, `1-scratch`, `scratch`, `latest`](https://github.com/SkynetLabs/docker-skyd/blob/main/scratch/Dockerfile)
-- [`1.5.5-bullseye-slim`, `1.5-bullseye-slim`, `1-bullseye-slim`, `bullseye-slim`](https://github.com/SkynetLabs/docker-skyd/blob/main/bullseye-slim/Dockerfile)
+_no image released yet_
+
+<!-- - [`1.5.5-scratch`, `1.5-scratch`, `1-scratch`, `scratch`, `latest`](https://github.com/SkynetLabs/docker-skyd/blob/main/scratch/Dockerfile) -->
+<!-- - [`1.5.5-bullseye-slim`, `1.5-bullseye-slim`, `1-bullseye-slim`, `bullseye-slim`](https://github.com/SkynetLabs/docker-skyd/blob/main/bullseye-slim/Dockerfile) -->
 
 # What is Skynet?
 
