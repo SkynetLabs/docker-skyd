@@ -23,6 +23,10 @@ COPY --from=builder /etc/mime.types /etc/mime.types
 # copy skyd and skyc binaries
 COPY --from=builder /root/skyd/bin/ /usr/bin
 
+# backwards compatibility with older versions of sia docker image
+# note: scratch does not support symlinks so we have to make a copy
+COPY --from=builder /root/skyd/bin/skyc /usr/bin/siac
+
 ENV SIA_DATA_DIR /sia-data
 ENV SIAD_DATA_DIR /sia-data
 
