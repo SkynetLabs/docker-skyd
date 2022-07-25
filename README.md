@@ -20,10 +20,9 @@
 - **Where to file issues**:  
   [https://github.com/skynetlabs/docker-skyd/issues](https://github.com/skynetlabs/docker-skyd/issues)
 
-# Supported tags and respective `Dockerfile` links
+# Available image versions
 
-- [`1.6.2-scratch`, `1.6-scratch`, `1-scratch`, `scratch`, `latest`](https://github.com/SkynetLabs/docker-skyd/blob/v1.6.2/scratch/Dockerfile)
-- [`1.6.2-bullseye-slim`, `1.6-bullseye-slim`, `1-bullseye-slim`, `bullseye-slim`](https://github.com/SkynetLabs/docker-skyd/blob/v1.6.2/bullseye-slim/Dockerfile)
+All images are published to dockerhub [skynetlabs/skyd](https://hub.docker.com/repository/docker/skynetlabs/skyd) repository.
 
 # What is Skynet?
 
