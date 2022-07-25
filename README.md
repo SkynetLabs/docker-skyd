@@ -1,3 +1,8 @@
+[![View on Dockerhub](https://img.shields.io/badge/view%20on-dockerhub-blue)](https://hub.docker.com/repository/docker/skynetlabs/skyd)
+[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/skynetlabs/skyd?color=00c65e&sort=semver)]()
+[![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/skynetlabs/skyd?color=00c65e&sort=semver)]()
+[![Docker Pulls](https://img.shields.io/docker/pulls/skynetlabs/skyd?color=00c65e)]()
+
 # Quick reference
 
 - **Maintained by**:  
