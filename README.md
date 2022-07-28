@@ -1,3 +1,8 @@
+[![View on Dockerhub](https://img.shields.io/badge/view%20on-dockerhub-blue)](https://hub.docker.com/repository/docker/skynetlabs/skyd)
+[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/skynetlabs/skyd?color=00c65e&sort=semver)]()
+[![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/skynetlabs/skyd?color=00c65e&sort=semver)]()
+[![Docker Pulls](https://img.shields.io/docker/pulls/skynetlabs/skyd?color=00c65e)]()
+
 # Quick reference
 
 - **Maintained by**:  
@@ -15,12 +20,9 @@
 - **Where to file issues**:  
   [https://github.com/skynetlabs/docker-skyd/issues](https://github.com/skynetlabs/docker-skyd/issues)
 
-# Supported tags and respective `Dockerfile` links
+# Available image versions
 
-_no image released yet_
-
-<!-- - [`1.5.5-scratch`, `1.5-scratch`, `1-scratch`, `scratch`, `latest`](https://github.com/SkynetLabs/docker-skyd/blob/main/scratch/Dockerfile) -->
-<!-- - [`1.5.5-bullseye-slim`, `1.5-bullseye-slim`, `1-bullseye-slim`, `bullseye-slim`](https://github.com/SkynetLabs/docker-skyd/blob/main/bullseye-slim/Dockerfile) -->
+All images are published to dockerhub [skynetlabs/skyd](https://hub.docker.com/repository/docker/skynetlabs/skyd) repository.
 
 # What is Skynet?
 
